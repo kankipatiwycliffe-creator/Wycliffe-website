@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Abiah Wycliffe | Personal Website</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #050914;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 16px;
+    text-align: center;
+    background: rgba(5, 9, 20, 0.95);
+    border-bottom: 1px solid #12304e;
+}
+
+nav a {
+    color: #b9cce0;
+    text-decoration: none;
+    margin: 0 12px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #18a8ff;
+}
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    background:
+        radial-gradient(
+            circle at center,
+            #0d2b52,
+            #071326 40%,
+            #050914 75%
+        );
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid #1597ff;
+    border-radius: 50px;
+    color: #64c5ff;
+    background: #071a31;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 10vw, 90px);
+    line-height: 1.1;
+    letter-spacing: -3px;
+}
+
+.blue {
+    color: #18a8ff;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #b9cce0;
+    max-width: 680px;
+    margin: 25px auto;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 25px;
+    background: #087ff5;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #18a8ff;
+}
+
+/* Sections */
+section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 90px 22px;
+}
+
+h2 {
+    font-size: 38px;
+    color: #18a8ff;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #7fa1bf;
+    margin-bottom: 30px;
+}
+
+/* Cards */
+.card {
+    background: #091321;
+    border: 1px solid #153450;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+}
+
+.card p {
+    color: #b9cce0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.interest {
+    min-height: 160px;
+}
+
+.icon {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    color: #55bdff;
+    margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 35px;
+    color: #68829b;
+    border-top: 1px solid #12304e;
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+
+    nav a {
+        margin: 0 5px;
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 70px 18px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="#about">About</a>
+    <a href="#interests">Interests</a>
+    <a href="#skills">Skills</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#ambition">Ambition</a>
+</nav>
+
+
+<!-- Home -->
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            10th Standard • Herald High School
+        </div>
+
+        <h1>
+            Abiah <span class="blue">Wycliffe</span>
+        </h1>
+
+        <p>
+            A curious student who enjoys exploring electronics,
+            experimenting with ideas, and creating scientific things.
+        </p>
+
+        <a class="button" href="#about">
+            Explore My Website ↓
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- About -->
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <p class="subtitle">
+        A little introduction
+    </p>
+
+    <div class="card">
+
+        <p>
+            I am <strong>Abiah Wycliffe</strong>, a 10th standard
+            student studying at <strong>Herald High School</strong>.
+            I enjoy understanding how things work and experimenting
+            with electronics and scientific ideas.
+        </p>
+
+        <br>
+
+        <p>
+            I like creating things, trying new concepts, and learning
+            through curiosity and experimentation.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Interests -->
+<section id="interests">
+
+    <h2>My Interests</h2>
+
+    <p class="subtitle">
+        Things I enjoy doing
+    </p>
+
+    <div class="cards">
+
+        <div class="card interest">
+
+            <div class="icon">⚡</div>
+
+            <h3>Electronics</h3>
+
+            <p>
+                Exploring electronics and learning how different
+                components and circuits work.
+            </p>
+
+        </div>
+
+
+        <div class="card interest">
+
+            <div class="icon">🔬</div>
+
+            <h3>Scientific Creations</h3>
+
+            <p>
+                Creating and experimenting with scientific ideas
+                and projects.
+            </p>
+
+        </div>
+
+
+        <div class="card interest">
+
+            <div class="icon">💡</div>
+
+            <h3>Experimenting</h3>
+
+            <p>
+                Trying new ideas and learning through experiments.
+            </p>
+
+        </div>
+
+
+        <div class="card interest">
+
+            <div class="icon">🛠️</div>
+
+            <h3>Building Things</h3>
+
+            <p>
+                Turning interesting ideas into things I can build
+                and explore.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Skills -->
+<section id="skills">
+
+    <h2>My Skills</h2>
+
+    <p class="subtitle">
+        A work in progress
+    </p>
+
+    <div class="card">
+
+        <p>
+            I am still discovering and developing my skills.
+            As I learn and create more projects, I will add them here.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Achievements -->
+<section id="achievements">
+
+    <h2>Achievements</h2>
+
+    <p class="subtitle">
+        More to come
+    </p>
+
+    <div class="card">
+
+        <p>
+            I am still building my list of achievements.
+            This section will grow as I accomplish new things.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Ambition -->
+<section id="ambition">
+
+    <h2>My Ambition</h2>
+
+    <p class="subtitle">
+        The future is still being explored
+    </p>
+
+    <div class="card">
+
+        <p>
+            I haven't decided on my exact career ambition yet.
+            For now, I want to keep learning, experimenting,
+            and discovering what I enjoy most.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<footer>
+
+    © 2026 Abiah Wycliffe • Personal Website
+
+</footer>
+
+</body>
+</html>
