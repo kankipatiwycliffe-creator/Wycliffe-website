@@ -1,41 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070b18">
-<meta name="description" content="Abiah Wycliffe's personal website — electronics, science, software and new ideas.">
-<title>Abiah Wycliffe | Personal Website</title>
+<meta name="theme-color" content="#000000">
+<meta name="description" content="Abiah Wycliffe's personal website.">
+<title>Abiah Wycliffe | Official Website</title>
 
 <style>
 :root {
-  --bg: #070b18;
-  --text: #f4f7ff;
-  --muted: #aab8d4;
-  --blue: #65baff;
-  --border: rgba(185,218,255,.18);
+  --black: #000000;
+  --surface: #080d12;
+  --blue: #8bdcff;
+  --blue-light: #c5efff;
+  --muted: #a4b5c2;
+  --border: rgba(139,220,255,.22);
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 85px;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  color: var(--text);
-  line-height: 1.65;
-  background:
-    radial-gradient(ellipse at 12% 8%, rgba(25,94,190,.34), transparent 35rem),
-    radial-gradient(ellipse at 88% 35%, rgba(43,47,151,.24), transparent 34rem),
-    #070b18;
-  min-height: 100vh;
+  background: var(--black);
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
 }
 
 a {
@@ -43,427 +42,441 @@ a {
   text-decoration: none;
 }
 
-.wrap {
-  width: min(1100px, calc(100% - 40px));
+.container {
+  width: min(1100px, 90%);
   margin: auto;
 }
 
-/* GLASS NAVIGATION */
+/* BACKGROUND */
 
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(7,11,24,.72);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 15%,
+      rgba(83,190,255,.12), transparent 30%),
+    radial-gradient(circle at 90% 55%,
+      rgba(83,190,255,.09), transparent 28%);
 }
 
-.nav-inner {
-  min-height: 72px;
+/* NAVIGATION */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  min-height: 76px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
 }
 
-.brand {
-  font-weight: 800;
-  font-size: 1.2rem;
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -1px;
 }
 
-.brand span {
+.logo span {
   color: var(--blue);
 }
 
 .nav-links {
   display: flex;
-  gap: 22px;
+  align-items: center;
+  gap: 26px;
 }
 
 .nav-links a {
   color: var(--muted);
-  transition: color .2s;
+  font-size: 14px;
+  transition: .25s;
 }
 
 .nav-links a:hover {
-  color: white;
+  color: var(--blue);
 }
 
-.menu-toggle {
+.menu-button {
   display: none;
-  padding: 8px 12px;
+  background: transparent;
   border: 1px solid var(--border);
-  border-radius: 12px;
-  background: rgba(255,255,255,.06);
-  color: white;
-  font-size: 1rem;
+  color: var(--blue);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 17px;
 }
 
-/* GLASSMORPHISM */
+/* GLASS EFFECT */
 
 .glass {
   background: linear-gradient(
     135deg,
-    rgba(255,255,255,.095),
-    rgba(255,255,255,.035)
+    rgba(139,220,255,.09),
+    rgba(255,255,255,.015)
   );
   border: 1px solid var(--border);
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.25),
-    inset 0 1px 0 rgba(255,255,255,.06);
+  border-radius: 22px;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 12px 40px rgba(0,0,0,.3);
+  transition: transform .3s, border-color .3s,
+              box-shadow .3s;
+}
+
+.glass:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139,220,255,.65);
+  box-shadow: 0 15px 45px rgba(67,183,255,.08);
 }
 
 /* HERO */
 
 .hero {
-  min-height: 590px;
+  min-height: 620px;
   display: grid;
-  grid-template-columns: 1.35fr .65fr;
+  grid-template-columns: 1.3fr .7fr;
   align-items: center;
-  gap: 54px;
-  padding: 80px 0;
+  gap: 55px;
+  padding: 85px 0;
 }
 
-.eyebrow {
+.badge {
   display: inline-block;
-  padding: 7px 12px;
-  border-radius: 30px;
-  border: 1px solid rgba(101,186,255,.28);
-  background: rgba(49,128,220,.1);
-  color: #bfe5ff;
-  font-size: .82rem;
-  letter-spacing: .08em;
+  border: 1px solid var(--border);
+  background: rgba(139,220,255,.07);
+  color: var(--blue);
+  padding: 7px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  letter-spacing: 2px;
 }
 
 h1 {
-  margin: 22px 0 16px;
-  font-size: clamp(3rem, 7vw, 5.8rem);
-  line-height: 1;
-  letter-spacing: -.06em;
+  font-size: clamp(48px, 8vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -5px;
+  margin: 25px 0;
 }
 
-.gradient-text {
-  background: linear-gradient(105deg, #fff, #91d2ff, #7c83ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.blue-text {
+  color: var(--blue);
+  text-shadow: 0 0 35px rgba(139,220,255,.15);
 }
 
-.hero p {
-  max-width: 620px;
+.hero-description {
+  max-width: 600px;
   color: var(--muted);
-  font-size: 1.08rem;
-  margin-bottom: 28px;
+  font-size: 17px;
+  margin-bottom: 30px;
 }
 
-.actions {
+.buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 18px;
-  border-radius: 14px;
+.button {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: .25s;
+}
+
+.button-primary {
+  background: var(--blue);
+  color: #000;
+  border: 1px solid var(--blue);
+}
+
+.button-primary:hover {
+  background: var(--blue-light);
+  box-shadow: 0 0 25px rgba(139,220,255,.22);
+}
+
+.button-outline {
   border: 1px solid var(--border);
-  font-weight: 700;
-  transition: transform .2s, box-shadow .2s;
+  color: var(--blue);
 }
 
-.btn:hover {
-  transform: translateY(-3px);
+.button-outline:hover {
+  background: rgba(139,220,255,.08);
 }
 
-.btn-primary {
-  color: #04101f;
-  background: linear-gradient(110deg, #8ed6ff, #6ca7ff);
-  border: none;
-  box-shadow: 0 8px 30px rgba(74,155,255,.23);
-}
+/* HERO CARD */
 
-.btn-secondary {
-  background: rgba(255,255,255,.045);
-}
-
-/* HERO GLASS CARD */
-
-.hero-panel {
-  min-height: 330px;
-  border-radius: 30px;
-  padding: 28px;
+.hero-card {
+  min-height: 340px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
-.hero-panel::before {
+.hero-card::after {
   content: "";
   position: absolute;
-  width: 210px;
-  height: 210px;
-  top: -75px;
+  width: 170px;
+  height: 170px;
   right: -60px;
+  top: -60px;
   border-radius: 50%;
-  background: rgba(68,157,255,.23);
+  background: rgba(139,220,255,.15);
   filter: blur(35px);
+  pointer-events: none;
 }
 
-.orb {
-  width: 118px;
-  height: 118px;
+.symbol {
+  width: 115px;
+  height: 115px;
   display: grid;
   place-items: center;
-  border-radius: 35px;
-  transform: rotate(-8deg);
-  font-size: 3rem;
-  background: linear-gradient(
-    145deg,
-    rgba(116,202,255,.28),
-    rgba(94,88,255,.12)
-  );
-  border: 1px solid rgba(184,225,255,.32);
-  box-shadow: 0 15px 40px rgba(32,111,222,.2);
+  border-radius: 30px;
+  border: 1px solid rgba(139,220,255,.45);
+  background: rgba(139,220,255,.08);
+  color: var(--blue);
+  font-size: 58px;
+  box-shadow: 0 0 35px rgba(139,220,255,.08);
 }
 
-.panel-label {
+.hero-card small {
   color: var(--muted);
-  font-size: .86rem;
+  letter-spacing: 2px;
 }
 
-.panel-title {
-  font-size: 1.4rem;
-  font-weight: 750;
-  line-height: 1.3;
-  margin-top: 6px;
+.hero-card h2 {
+  font-size: 27px;
+  margin: 8px 0 18px;
 }
 
-.mini-tags {
+.tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 18px;
 }
 
 .tag {
-  padding: 5px 10px;
-  border-radius: 30px;
-  font-size: .78rem;
-  color: #c8e6ff;
-  background: rgba(80,155,255,.1);
-  border: 1px solid rgba(150,204,255,.17);
-}
-
-/* SECTIONS */
-
-section {
-  padding: 48px 0;
-}
-
-.section-head {
-  margin-bottom: 24px;
-}
-
-.section-kicker {
+  border: 1px solid var(--border);
   color: var(--blue);
+  background: rgba(139,220,255,.05);
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 12px;
+}
+
+/* GENERAL SECTIONS */
+
+section.content-section {
+  padding: 65px 0;
+}
+
+.section-label {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  letter-spacing: .16em;
-  font-size: .76rem;
-  font-weight: 800;
 }
 
-h2 {
-  margin: 7px 0 8px;
-  font-size: clamp(1.8rem, 4vw, 2.55rem);
+.section-title {
+  font-size: clamp(30px, 5vw, 43px);
   line-height: 1.2;
+  margin: 10px 0;
+  letter-spacing: -1.5px;
 }
 
-.section-head p {
+.section-description {
   color: var(--muted);
   max-width: 650px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 16px;
-}
-
-.card {
-  border-radius: 22px;
-  padding: 23px;
-  min-height: 190px;
-  transition: transform .25s, border-color .25s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(116,199,255,.5);
-}
-
-.icon-box {
-  width: 46px;
-  height: 46px;
-  display: grid;
-  place-items: center;
-  border-radius: 14px;
-  margin-bottom: 16px;
-  font-size: 1.35rem;
-  background: rgba(75,154,255,.12);
-  border: 1px solid rgba(127,190,255,.2);
-}
-
-h3 {
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-}
-
-.card p {
-  color: var(--muted);
-  font-size: .93rem;
+  margin-bottom: 30px;
 }
 
 /* ABOUT */
 
-.about-layout {
+.about-grid {
   display: grid;
   grid-template-columns: 1.1fr .9fr;
-  gap: 16px;
+  gap: 20px;
 }
 
 .about-card {
-  border-radius: 24px;
   padding: 28px;
+}
+
+.about-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
 }
 
 .about-card p {
   color: var(--muted);
-  margin-bottom: 14px;
+  margin-bottom: 13px;
 }
 
-.facts {
+.details {
   display: grid;
   gap: 12px;
 }
 
-.fact {
+.detail {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
-  padding: 14px 16px;
-  border-radius: 15px;
-  background: rgba(255,255,255,.035);
-  border: 1px solid rgba(185,218,255,.11);
+  align-items: center;
+  gap: 15px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(139,220,255,.1);
 }
 
-.fact span {
+.detail span {
   color: var(--muted);
-  font-size: .9rem;
+  font-size: 13px;
 }
 
-.fact strong {
+.detail strong {
   text-align: right;
-  font-size: .92rem;
+  font-size: 13px;
 }
 
-.note {
-  color: var(--muted);
-  font-size: .85rem;
-  margin-top: 15px;
-}
+/* INTERESTS AND SKILLS */
 
-/* FUTURE SECTIONS */
-
-.future-card {
-  border-radius: 24px;
-  padding: 26px;
-  display: flex;
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
   gap: 18px;
+}
+
+.card {
+  padding: 25px;
+  min-height: 205px;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  background: rgba(139,220,255,.07);
+  border-radius: 14px;
+  color: var(--blue);
+  font-size: 25px;
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* FEATURE BANNER */
+
+.banner {
+  display: flex;
   align-items: flex-start;
+  gap: 20px;
+  padding: 28px;
 }
 
-.future-card .icon-box {
-  flex-shrink: 0;
-  margin: 0;
+.banner h3 {
+  margin-bottom: 8px;
 }
 
-.future-card p {
+.banner p {
   color: var(--muted);
 }
 
 /* FOOTER */
 
 footer {
-  margin-top: 55px;
-  border-top: 1px solid rgba(190,220,255,.12);
+  margin-top: 60px;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,.4);
 }
 
 .footer-inner {
+  min-height: 90px;
   display: flex;
   justify-content: space-between;
-  gap: 18px;
   align-items: center;
-  padding: 24px 0;
+  gap: 20px;
   color: var(--muted);
-  font-size: .88rem;
+  font-size: 13px;
 }
 
 .footer-inner strong {
-  color: var(--text);
+  color: white;
 }
 
-/* MOBILE RESPONSIVENESS */
+.footer-inner a {
+  color: var(--blue);
+}
+
+/* RESPONSIVE DESIGN */
 
 @media (max-width: 800px) {
   .hero {
     grid-template-columns: 1fr;
-    min-height: auto;
-    gap: 34px;
-    padding: 60px 0 40px;
+    gap: 35px;
+    padding: 65px 0;
   }
 
-  .hero-panel {
-    min-height: 260px;
+  .hero-card {
+    min-height: 270px;
   }
 
-  .grid {
-    grid-template-columns: repeat(2, minmax(0,1fr));
-  }
-
-  .about-layout {
+  .about-grid {
     grid-template-columns: 1fr;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0,1fr));
   }
 }
 
 @media (max-width: 600px) {
-  .wrap {
-    width: calc(100% - 28px);
+  .container {
+    width: 90%;
   }
 
-  .nav-inner {
-    min-height: 64px;
+  nav {
+    min-height: 66px;
     flex-wrap: wrap;
     padding: 10px 0;
   }
 
-  .menu-toggle {
-    display: inline-flex;
+  .menu-button {
+    display: block;
   }
 
   .nav-links {
     display: none;
-    width: 100%;
     flex-direction: column;
+    align-items: stretch;
+    width: 100%;
     gap: 0;
-    padding: 4px 0 8px;
   }
 
   .nav-links.open {
@@ -471,19 +484,24 @@ footer {
   }
 
   .nav-links a {
-    padding: 11px 4px;
-    border-top: 1px solid rgba(190,220,255,.09);
-  }
-
-  .hero {
-    padding-top: 48px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(139,220,255,.1);
   }
 
   h1 {
-    font-size: clamp(2.8rem, 15vw, 4.4rem);
+    font-size: clamp(45px, 13vw, 65px);
+    letter-spacing: -3px;
   }
 
-  .grid {
+  .hero-description {
+    font-size: 15px;
+  }
+
+  section.content-section {
+    padding: 45px 0;
+  }
+
+  .cards {
     grid-template-columns: 1fr;
   }
 
@@ -492,12 +510,14 @@ footer {
   }
 
   .footer-inner {
+    padding: 22px 0;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
   }
 
-  .about-card {
-    padding: 22px;
+  .detail {
+    align-items: flex-start;
   }
 }
 
@@ -507,7 +527,7 @@ footer {
   }
 
   *, *::before, *::after {
-    transition-duration: .01ms !important;
+    transition: none !important;
   }
 }
 </style>
@@ -515,185 +535,226 @@ footer {
 
 <body>
 
-<header class="navbar">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#home">ABIAH<span>.</span></a>
+<header>
+  <nav class="container">
+    <a class="logo" href="#home">ABIAH<span>.</span></a>
 
-    <button class="menu-toggle" id="menuToggle"
+    <button class="menu-button" id="menuButton"
       aria-expanded="false" aria-controls="navLinks">
-      Menu ☰
+      ☰ Menu
     </button>
 
-    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+    <div class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#interests">Interests</a>
       <a href="#skills">Skills</a>
-      <a href="#achievements">Achievements</a>
+      <a href="#projects">Projects</a>
       <a href="#ambition">Ambition</a>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
 
 <main>
-<div class="wrap">
+<div class="container">
 
+  <!-- HOME -->
   <section class="hero" id="home">
     <div>
-      <div class="eyebrow">PERSONAL WEBSITE</div>
+      <span class="badge">WELCOME TO MY WEBSITE</span>
 
       <h1>
-        <span class="gradient-text">Abiah</span><br>
-        Wycliffe<span class="gradient-text">.</span>
+        Abiah<br>
+        <span class="blue-text">Wycliffe.</span>
       </h1>
 
-      <p>
-        A student, curious thinker, and technology enthusiast exploring
-        electronics, science, software, and ideas that could become something real.
+      <p class="hero-description">
+        Curious mind. Creative thinker. Technology enthusiast.
+        Exploring electronics, science, software, and ideas for the future.
       </p>
 
-      <div class="actions">
-        <a class="btn btn-primary" href="#about">Explore my website ↘</a>
-        <a class="btn btn-secondary" href="#interests">What I enjoy</a>
+      <div class="buttons">
+        <a href="#about" class="button button-primary">
+          Discover More ↗
+        </a>
+        <a href="#interests" class="button button-outline">
+          My Interests
+        </a>
       </div>
     </div>
 
-    <aside class="hero-panel glass">
-      <div class="orb">✦</div>
+    <div class="hero-card glass">
+      <div class="symbol">✦</div>
 
       <div>
-        <div class="panel-label">CURIOUS BY NATURE</div>
-        <div class="panel-title">Learning today.<br>Building tomorrow.</div>
+        <small>MY PERSONAL SPACE</small>
+        <h2>Think. Explore.<br><span class="blue-text">Create.</span></h2>
 
-        <div class="mini-tags">
+        <div class="tags">
           <span class="tag">Electronics</span>
           <span class="tag">Science</span>
           <span class="tag">Technology</span>
         </div>
       </div>
-    </aside>
+    </div>
   </section>
 
-  <section id="about">
-    <div class="section-head">
-      <div class="section-kicker">A little about me</div>
-      <h2>Getting to know me</h2>
-      <p>A quick introduction to who I am and the things that spark my curiosity.</p>
-    </div>
+  <!-- ABOUT -->
+  <section class="content-section" id="about">
+    <div class="section-label">Introduction</div>
+    <h2 class="section-title">A little about me.</h2>
+    <p class="section-description">
+      Get to know me, my interests, and what inspires me to learn.
+    </p>
 
-    <div class="about-layout">
+    <div class="about-grid">
       <div class="about-card glass">
         <h3>Hello, welcome! 👋</h3>
         <p>
           I'm Abiah Wycliffe, a 10th standard student at Herald High School.
-          I enjoy exploring how things work, experimenting with electronics,
-          and coming up with scientific ideas.
+          I enjoy playing with electronics, exploring scientific ideas,
+          and understanding how technology works.
         </p>
         <p>
-          This website is my little corner of the internet — a place to share
-          my interests and keep growing as I learn new things.
+          This website is my personal corner of the internet, where I can
+          share my interests and document my learning journey.
         </p>
       </div>
 
       <div class="about-card glass">
-        <div class="facts">
-          <div class="fact"><span>Name</span><strong>Abiah Wycliffe</strong></div>
-          <div class="fact"><span>Education</span><strong>10th Standard</strong></div>
-          <div class="fact"><span>School</span><strong>Herald High School</strong></div>
-          <div class="fact"><span>Interests</span><strong>Science &amp; Technology</strong></div>
+        <div class="details">
+          <div class="detail">
+            <span>Name</span>
+            <strong>Abiah Wycliffe</strong>
+          </div>
+
+          <div class="detail">
+            <span>Education</span>
+            <strong>10th Standard</strong>
+          </div>
+
+          <div class="detail">
+            <span>School</span>
+            <strong>Herald High School</strong>
+          </div>
+
+          <div class="detail">
+            <span>Favourite Areas</span>
+            <strong>Science &amp; Technology</strong>
+          </div>
         </div>
-        <div class="note">Avoid publishing private contact details on a public website.</div>
       </div>
     </div>
   </section>
 
-  <section id="interests">
-    <div class="section-head">
-      <div class="section-kicker">Things I enjoy</div>
-      <h2>My interests</h2>
-      <p>Areas I enjoy exploring and learning more about.</p>
-    </div>
+  <!-- INTERESTS -->
+  <section class="content-section" id="interests">
+    <div class="section-label">What I enjoy</div>
+    <h2 class="section-title">My interests.</h2>
+    <p class="section-description">
+      Things that make me curious and motivate me to explore more.
+    </p>
 
-    <div class="grid">
+    <div class="cards">
       <article class="card glass">
-        <div class="icon-box">⚡</div>
+        <div class="card-icon">⚡</div>
         <h3>Electronics</h3>
-        <p>Exploring circuits, components, and how electronic devices work.</p>
+        <p>
+          Exploring circuits, electronic components, devices,
+          and how they work together.
+        </p>
       </article>
 
       <article class="card glass">
-        <div class="icon-box">🔬</div>
-        <h3>Science &amp; Experiments</h3>
-        <p>Asking questions, testing ideas safely, and learning why things happen.</p>
+        <div class="card-icon">🔬</div>
+        <h3>Science</h3>
+        <p>
+          Understanding the world through scientific thinking,
+          questions, and experiments.
+        </p>
       </article>
 
       <article class="card glass">
-        <div class="icon-box">💻</div>
+        <div class="card-icon">💻</div>
         <h3>Software &amp; AI</h3>
-        <p>Discovering how software and artificial intelligence can solve problems.</p>
+        <p>
+          Discovering programming, artificial intelligence,
+          and technology-based solutions.
+        </p>
       </article>
     </div>
   </section>
 
-  <section id="skills">
-    <div class="section-head">
-      <div class="section-kicker">Always learning</div>
-      <h2>Skills I'm developing</h2>
-      <p>Every new project is an opportunity to learn and build experience.</p>
-    </div>
+  <!-- SKILLS -->
+  <section class="content-section" id="skills">
+    <div class="section-label">Personal development</div>
+    <h2 class="section-title">Skills I'm developing.</h2>
+    <p class="section-description">
+      Every day is an opportunity to learn something new.
+    </p>
 
-    <div class="grid">
+    <div class="cards">
       <article class="card glass">
-        <div class="icon-box">🧩</div>
-        <h3>Problem-solving</h3>
-        <p>Breaking questions into smaller steps and exploring possible solutions.</p>
+        <div class="card-icon">🧠</div>
+        <h3>Critical Thinking</h3>
+        <p>
+          Asking questions, analysing ideas, and looking
+          for logical solutions.
+        </p>
       </article>
 
       <article class="card glass">
-        <div class="icon-box">🛠️</div>
-        <h3>Hands-on learning</h3>
-        <p>Learning by exploring, testing ideas, and understanding how things fit together.</p>
+        <div class="card-icon">🛠️</div>
+        <h3>Practical Learning</h3>
+        <p>
+          Learning through projects, exploration,
+          and hands-on activities.
+        </p>
       </article>
 
       <article class="card glass">
-        <div class="icon-box">🌱</div>
-        <h3>Continuous growth</h3>
-        <p>Building knowledge gradually and staying curious about new technology.</p>
+        <div class="card-icon">🌱</div>
+        <h3>Continuous Growth</h3>
+        <p>
+          Developing knowledge, improving skills,
+          and staying curious.
+        </p>
       </article>
     </div>
   </section>
 
-  <section id="achievements">
-    <div class="section-head">
-      <div class="section-kicker">My journey</div>
-      <h2>Achievements &amp; projects</h2>
-      <p>This space is ready for future projects, milestones, certificates, and accomplishments.</p>
-    </div>
+  <!-- PROJECTS -->
+  <section class="content-section" id="projects">
+    <div class="section-label">My journey</div>
+    <h2 class="section-title">Projects &amp; achievements.</h2>
+    <p class="section-description">
+      A place to showcase future creations and milestones.
+    </p>
 
-    <div class="future-card glass">
-      <div class="icon-box">🚀</div>
+    <div class="banner glass">
+      <div class="card-icon">🚀</div>
       <div>
         <h3>More coming soon</h3>
         <p>
-          As I complete projects and reach new milestones, I'll update this
-          section with what I've learned and created.
+          As I complete projects, learn new skills, and achieve
+          milestones, I'll add them here.
         </p>
       </div>
     </div>
   </section>
 
-  <section id="ambition">
-    <div class="section-head">
-      <div class="section-kicker">Looking ahead</div>
-      <h2>My ambition</h2>
-    </div>
+  <!-- AMBITION -->
+  <section class="content-section" id="ambition">
+    <div class="section-label">Looking forward</div>
+    <h2 class="section-title">My ambition.</h2>
 
-    <div class="future-card glass">
-      <div class="icon-box">🌌</div>
+    <div class="banner glass">
+      <div class="card-icon">🌌</div>
       <div>
-        <h3>A future built on learning</h3>
+        <h3>Building my future</h3>
         <p>
-          I'm exploring my interests and developing the knowledge and skills
-          to make thoughtful choices about my future.
+          I'm working towards my goals through education,
+          curiosity, and a commitment to learning.
+          The journey continues with every new idea.
         </p>
       </div>
     </div>
@@ -703,31 +764,33 @@ footer {
 </main>
 
 <footer>
-  <div class="wrap footer-inner">
-    <div>© <span id="year"></span> <strong>Abiah Wycliffe</strong>. Made with curiosity.</div>
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> <strong>Abiah Wycliffe</strong>. All rights reserved.</p>
     <a href="#home">Back to top ↑</a>
   </div>
 </footer>
 
 <script>
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
 
-menuToggle.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-  menuToggle.textContent = isOpen ? 'Close ✕' : 'Menu ☰';
+menuButton.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+
+  menuButton.setAttribute("aria-expanded", String(open));
+  menuButton.textContent = open ? "✕ Close" : "☰ Menu";
 });
 
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.textContent = 'Menu ☰';
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.textContent = "☰ Menu";
   });
 });
 
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 </script>
 
 </body>
