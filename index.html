@@ -5,13 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="The personal website of Abiah Wycliffe.">
+<meta name="description" content="Abiah Wycliffe — personal website">
 <title>Abiah Wycliffe | Personal Website</title>
 
-<!-- Elegant cinematic typography -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Math&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -35,8 +34,8 @@ html {
 }
 
 body {
+  color: white;
   background: var(--black);
-  color: #fff;
   font-family: 'Inter', Arial, sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
@@ -46,8 +45,8 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: -1;
+  pointer-events: none;
   background:
     radial-gradient(ellipse at 12% 12%, rgba(95,190,255,.12), transparent 35%),
     radial-gradient(ellipse at 90% 60%, rgba(95,190,255,.08), transparent 30%);
@@ -63,13 +62,45 @@ a {
   margin: auto;
 }
 
+/* MATH-STYLE ITALIC HEADINGS */
+
+h1, h2, h3 {
+  font-family: 'STIX Two Math', 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: clamp(58px, 9vw, 105px);
+  line-height: .98;
+  letter-spacing: -2px;
+  margin: 27px 0;
+}
+
+h2 {
+  font-size: clamp(34px, 5vw, 49px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-size: 25px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.blue-text {
+  color: var(--blue);
+  text-shadow: 0 0 30px rgba(139,220,255,.15);
+}
+
 /* NAVIGATION */
 
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(0,0,0,.78);
+  background: rgba(0,0,0,.8);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -84,9 +115,10 @@ nav {
 }
 
 .logo {
-  font-size: 25px;
-  font-weight: 800;
-  letter-spacing: -1px;
+  font-family: 'STIX Two Math', serif;
+  font-style: italic;
+  font-size: 27px;
+  color: white;
 }
 
 .logo span {
@@ -139,46 +171,6 @@ nav {
   transform: translateY(-5px);
   border-color: rgba(139,220,255,.65);
   box-shadow: 0 15px 45px rgba(70,180,255,.08);
-}
-
-/* CINEMATIC TYPOGRAPHY */
-
-h1, h2, h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 500;
-}
-
-h1 {
-  font-size: clamp(58px, 9vw, 105px);
-  line-height: .94;
-  letter-spacing: -3px;
-  margin: 27px 0;
-}
-
-h2 {
-  font-size: clamp(34px, 5vw, 49px);
-  line-height: 1.1;
-  letter-spacing: -1px;
-}
-
-h3 {
-  font-size: 25px;
-  line-height: 1.2;
-  margin-bottom: 12px;
-}
-
-.blue-text {
-  color: var(--blue);
-  text-shadow: 0 0 30px rgba(139,220,255,.15);
-}
-
-.section-label {
-  color: var(--blue);
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
 }
 
 /* HERO */
@@ -245,7 +237,7 @@ h3 {
   background: rgba(139,220,255,.07);
 }
 
-/* HERO CARD */
+/* HERO GLASS CARD */
 
 .hero-card {
   min-height: 350px;
@@ -312,6 +304,15 @@ h3 {
 
 section.content-section {
   padding: 65px 0;
+}
+
+.section-label {
+  color: var(--blue);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .section-title {
@@ -436,14 +437,14 @@ footer {
 }
 
 .footer-inner strong {
-  color: #fff;
+  color: white;
 }
 
 .footer-inner a {
   color: var(--blue);
 }
 
-/* MOBILE */
+/* RESPONSIVE DESIGN */
 
 @media (max-width: 800px) {
   .hero {
