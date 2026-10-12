@@ -3,413 +3,732 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#070b18">
+<meta name="description" content="Abiah Wycliffe's personal website — electronics, science, software and new ideas.">
 <title>Abiah Wycliffe | Personal Website</title>
 
 <style>
+:root {
+  --bg: #070b18;
+  --text: #f4f7ff;
+  --muted: #aab8d4;
+  --blue: #65baff;
+  --border: rgba(185,218,255,.18);
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #050914;
-    color: #ffffff;
-    line-height: 1.6;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.65;
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(25,94,190,.34), transparent 35rem),
+    radial-gradient(ellipse at 88% 35%, rgba(43,47,151,.24), transparent 34rem),
+    #070b18;
+  min-height: 100vh;
 }
 
-/* Navigation */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 16px;
-    text-align: center;
-    background: rgba(5, 9, 20, 0.95);
-    border-bottom: 1px solid #12304e;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-nav a {
-    color: #b9cce0;
-    text-decoration: none;
-    margin: 0 12px;
-    font-size: 14px;
+.wrap {
+  width: min(1100px, calc(100% - 40px));
+  margin: auto;
 }
 
-nav a:hover {
-    color: #18a8ff;
+/* GLASS NAVIGATION */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(7,11,24,.72);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 }
 
-/* Hero */
+.nav-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.brand span {
+  color: var(--blue);
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  transition: color .2s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.menu-toggle {
+  display: none;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  color: white;
+  font-size: 1rem;
+}
+
+/* GLASSMORPHISM */
+
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,.095),
+    rgba(255,255,255,.035)
+  );
+  border: 1px solid var(--border);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* HERO */
+
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 30px;
-    background:
-        radial-gradient(
-            circle at center,
-            #0d2b52,
-            #071326 40%,
-            #050914 75%
-        );
+  min-height: 590px;
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  align-items: center;
+  gap: 54px;
+  padding: 80px 0;
 }
 
-.hero-content {
-    max-width: 850px;
+.eyebrow {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 30px;
+  border: 1px solid rgba(101,186,255,.28);
+  background: rgba(49,128,220,.1);
+  color: #bfe5ff;
+  font-size: .82rem;
+  letter-spacing: .08em;
 }
 
-.badge {
-    display: inline-block;
-    padding: 8px 18px;
-    border: 1px solid #1597ff;
-    border-radius: 50px;
-    color: #64c5ff;
-    background: #071a31;
-    margin-bottom: 25px;
+h1 {
+  margin: 22px 0 16px;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: 1;
+  letter-spacing: -.06em;
 }
 
-.hero h1 {
-    font-size: clamp(50px, 10vw, 90px);
-    line-height: 1.1;
-    letter-spacing: -3px;
-}
-
-.blue {
-    color: #18a8ff;
+.gradient-text {
+  background: linear-gradient(105deg, #fff, #91d2ff, #7c83ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero p {
-    font-size: 20px;
-    color: #b9cce0;
-    max-width: 680px;
-    margin: 25px auto;
+  max-width: 620px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  margin-bottom: 28px;
 }
 
-.button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 14px 25px;
-    background: #087ff5;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.button:hover {
-    background: #18a8ff;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  font-weight: 700;
+  transition: transform .2s, box-shadow .2s;
 }
 
-/* Sections */
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  color: #04101f;
+  background: linear-gradient(110deg, #8ed6ff, #6ca7ff);
+  border: none;
+  box-shadow: 0 8px 30px rgba(74,155,255,.23);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,.045);
+}
+
+/* HERO GLASS CARD */
+
+.hero-panel {
+  min-height: 330px;
+  border-radius: 30px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  top: -75px;
+  right: -60px;
+  border-radius: 50%;
+  background: rgba(68,157,255,.23);
+  filter: blur(35px);
+}
+
+.orb {
+  width: 118px;
+  height: 118px;
+  display: grid;
+  place-items: center;
+  border-radius: 35px;
+  transform: rotate(-8deg);
+  font-size: 3rem;
+  background: linear-gradient(
+    145deg,
+    rgba(116,202,255,.28),
+    rgba(94,88,255,.12)
+  );
+  border: 1px solid rgba(184,225,255,.32);
+  box-shadow: 0 15px 40px rgba(32,111,222,.2);
+}
+
+.panel-label {
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.panel-title {
+  font-size: 1.4rem;
+  font-weight: 750;
+  line-height: 1.3;
+  margin-top: 6px;
+}
+
+.mini-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tag {
+  padding: 5px 10px;
+  border-radius: 30px;
+  font-size: .78rem;
+  color: #c8e6ff;
+  background: rgba(80,155,255,.1);
+  border: 1px solid rgba(150,204,255,.17);
+}
+
+/* SECTIONS */
+
 section {
-    max-width: 1000px;
-    margin: auto;
-    padding: 90px 22px;
+  padding: 48px 0;
+}
+
+.section-head {
+  margin-bottom: 24px;
+}
+
+.section-kicker {
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .76rem;
+  font-weight: 800;
 }
 
 h2 {
-    font-size: 38px;
-    color: #18a8ff;
-    margin-bottom: 8px;
+  margin: 7px 0 8px;
+  font-size: clamp(1.8rem, 4vw, 2.55rem);
+  line-height: 1.2;
 }
 
-.subtitle {
-    color: #7fa1bf;
-    margin-bottom: 30px;
+.section-head p {
+  color: var(--muted);
+  max-width: 650px;
 }
 
-/* Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 16px;
+}
+
 .card {
-    background: #091321;
-    border: 1px solid #153450;
-    border-radius: 18px;
-    padding: 30px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+  border-radius: 22px;
+  padding: 23px;
+  min-height: 190px;
+  transition: transform .25s, border-color .25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(116,199,255,.5);
+}
+
+.icon-box {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  font-size: 1.35rem;
+  background: rgba(75,154,255,.12);
+  border: 1px solid rgba(127,190,255,.2);
+}
+
+h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
 }
 
 .card p {
-    color: #b9cce0;
+  color: var(--muted);
+  font-size: .93rem;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+/* ABOUT */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 16px;
 }
 
-.interest {
-    min-height: 160px;
+.about-card {
+  border-radius: 24px;
+  padding: 28px;
 }
 
-.icon {
-    font-size: 34px;
-    margin-bottom: 10px;
+.about-card p {
+  color: var(--muted);
+  margin-bottom: 14px;
 }
 
-.card h3 {
-    color: #55bdff;
-    margin-bottom: 8px;
+.facts {
+  display: grid;
+  gap: 12px;
 }
 
-/* Footer */
+.fact {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(185,218,255,.11);
+}
+
+.fact span {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.fact strong {
+  text-align: right;
+  font-size: .92rem;
+}
+
+.note {
+  color: var(--muted);
+  font-size: .85rem;
+  margin-top: 15px;
+}
+
+/* FUTURE SECTIONS */
+
+.future-card {
+  border-radius: 24px;
+  padding: 26px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.future-card .icon-box {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.future-card p {
+  color: var(--muted);
+}
+
+/* FOOTER */
+
 footer {
-    text-align: center;
-    padding: 35px;
-    color: #68829b;
-    border-top: 1px solid #12304e;
+  margin-top: 55px;
+  border-top: 1px solid rgba(190,220,255,.12);
 }
 
-/* Mobile */
-@media (max-width: 650px) {
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  padding: 24px 0;
+  color: var(--muted);
+  font-size: .88rem;
+}
 
-    nav a {
-        margin: 0 5px;
-        font-size: 12px;
-    }
+.footer-inner strong {
+  color: var(--text);
+}
 
-    .hero h1 {
-        font-size: 48px;
-    }
+/* MOBILE RESPONSIVENESS */
 
-    .hero p {
-        font-size: 17px;
-    }
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 34px;
+    padding: 60px 0 40px;
+  }
 
-    .cards {
-        grid-template-columns: 1fr;
-    }
+  .hero-panel {
+    min-height: 260px;
+  }
 
-    section {
-        padding: 70px 18px;
-    }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
 
-    h2 {
-        font-size: 30px;
-    }
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    width: calc(100% - 28px);
+  }
+
+  .nav-inner {
+    min-height: 64px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 4px 0 8px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 11px 4px;
+    border-top: 1px solid rgba(190,220,255,.09);
+  }
+
+  .hero {
+    padding-top: 48px;
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 15vw, 4.4rem);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: auto;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-card {
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition-duration: .01ms !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Navigation -->
-<nav>
-    <a href="#about">About</a>
-    <a href="#interests">Interests</a>
-    <a href="#skills">Skills</a>
-    <a href="#achievements">Achievements</a>
-    <a href="#ambition">Ambition</a>
-</nav>
+<header class="navbar">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#home">ABIAH<span>.</span></a>
 
+    <button class="menu-toggle" id="menuToggle"
+      aria-expanded="false" aria-controls="navLinks">
+      Menu ☰
+    </button>
 
-<!-- Home -->
-<header class="hero">
-
-    <div class="hero-content">
-
-        <div class="badge">
-            10th Standard • Herald High School
-        </div>
-
-        <h1>
-            Abiah <span class="blue">Wycliffe</span>
-        </h1>
-
-        <p>
-            A curious student who enjoys exploring electronics,
-            experimenting with ideas, and creating scientific things.
-        </p>
-
-        <a class="button" href="#about">
-            Explore My Website ↓
-        </a>
-
-    </div>
-
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#interests">Interests</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#ambition">Ambition</a>
+    </nav>
+  </div>
 </header>
 
+<main>
+<div class="wrap">
 
-<!-- About -->
-<section id="about">
+  <section class="hero" id="home">
+    <div>
+      <div class="eyebrow">PERSONAL WEBSITE</div>
 
-    <h2>About Me</h2>
+      <h1>
+        <span class="gradient-text">Abiah</span><br>
+        Wycliffe<span class="gradient-text">.</span>
+      </h1>
 
-    <p class="subtitle">
-        A little introduction
-    </p>
+      <p>
+        A student, curious thinker, and technology enthusiast exploring
+        electronics, science, software, and ideas that could become something real.
+      </p>
 
-    <div class="card">
-
-        <p>
-            I am <strong>Abiah Wycliffe</strong>, a 10th standard
-            student studying at <strong>Herald High School</strong>.
-            I enjoy understanding how things work and experimenting
-            with electronics and scientific ideas.
-        </p>
-
-        <br>
-
-        <p>
-            I like creating things, trying new concepts, and learning
-            through curiosity and experimentation.
-        </p>
-
+      <div class="actions">
+        <a class="btn btn-primary" href="#about">Explore my website ↘</a>
+        <a class="btn btn-secondary" href="#interests">What I enjoy</a>
+      </div>
     </div>
 
-</section>
+    <aside class="hero-panel glass">
+      <div class="orb">✦</div>
 
+      <div>
+        <div class="panel-label">CURIOUS BY NATURE</div>
+        <div class="panel-title">Learning today.<br>Building tomorrow.</div>
 
-<!-- Interests -->
-<section id="interests">
-
-    <h2>My Interests</h2>
-
-    <p class="subtitle">
-        Things I enjoy doing
-    </p>
-
-    <div class="cards">
-
-        <div class="card interest">
-
-            <div class="icon">⚡</div>
-
-            <h3>Electronics</h3>
-
-            <p>
-                Exploring electronics and learning how different
-                components and circuits work.
-            </p>
-
+        <div class="mini-tags">
+          <span class="tag">Electronics</span>
+          <span class="tag">Science</span>
+          <span class="tag">Technology</span>
         </div>
+      </div>
+    </aside>
+  </section>
 
-
-        <div class="card interest">
-
-            <div class="icon">🔬</div>
-
-            <h3>Scientific Creations</h3>
-
-            <p>
-                Creating and experimenting with scientific ideas
-                and projects.
-            </p>
-
-        </div>
-
-
-        <div class="card interest">
-
-            <div class="icon">💡</div>
-
-            <h3>Experimenting</h3>
-
-            <p>
-                Trying new ideas and learning through experiments.
-            </p>
-
-        </div>
-
-
-        <div class="card interest">
-
-            <div class="icon">🛠️</div>
-
-            <h3>Building Things</h3>
-
-            <p>
-                Turning interesting ideas into things I can build
-                and explore.
-            </p>
-
-        </div>
-
+  <section id="about">
+    <div class="section-head">
+      <div class="section-kicker">A little about me</div>
+      <h2>Getting to know me</h2>
+      <p>A quick introduction to who I am and the things that spark my curiosity.</p>
     </div>
 
-</section>
-
-
-<!-- Skills -->
-<section id="skills">
-
-    <h2>My Skills</h2>
-
-    <p class="subtitle">
-        A work in progress
-    </p>
-
-    <div class="card">
-
+    <div class="about-layout">
+      <div class="about-card glass">
+        <h3>Hello, welcome! 👋</h3>
         <p>
-            I am still discovering and developing my skills.
-            As I learn and create more projects, I will add them here.
+          I'm Abiah Wycliffe, a 10th standard student at Herald High School.
+          I enjoy exploring how things work, experimenting with electronics,
+          and coming up with scientific ideas.
         </p>
-
-    </div>
-
-</section>
-
-
-<!-- Achievements -->
-<section id="achievements">
-
-    <h2>Achievements</h2>
-
-    <p class="subtitle">
-        More to come
-    </p>
-
-    <div class="card">
-
         <p>
-            I am still building my list of achievements.
-            This section will grow as I accomplish new things.
+          This website is my little corner of the internet — a place to share
+          my interests and keep growing as I learn new things.
         </p>
+      </div>
 
+      <div class="about-card glass">
+        <div class="facts">
+          <div class="fact"><span>Name</span><strong>Abiah Wycliffe</strong></div>
+          <div class="fact"><span>Education</span><strong>10th Standard</strong></div>
+          <div class="fact"><span>School</span><strong>Herald High School</strong></div>
+          <div class="fact"><span>Interests</span><strong>Science &amp; Technology</strong></div>
+        </div>
+        <div class="note">Avoid publishing private contact details on a public website.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="interests">
+    <div class="section-head">
+      <div class="section-kicker">Things I enjoy</div>
+      <h2>My interests</h2>
+      <p>Areas I enjoy exploring and learning more about.</p>
     </div>
 
-</section>
+    <div class="grid">
+      <article class="card glass">
+        <div class="icon-box">⚡</div>
+        <h3>Electronics</h3>
+        <p>Exploring circuits, components, and how electronic devices work.</p>
+      </article>
 
+      <article class="card glass">
+        <div class="icon-box">🔬</div>
+        <h3>Science &amp; Experiments</h3>
+        <p>Asking questions, testing ideas safely, and learning why things happen.</p>
+      </article>
 
-<!-- Ambition -->
-<section id="ambition">
+      <article class="card glass">
+        <div class="icon-box">💻</div>
+        <h3>Software &amp; AI</h3>
+        <p>Discovering how software and artificial intelligence can solve problems.</p>
+      </article>
+    </div>
+  </section>
 
-    <h2>My Ambition</h2>
+  <section id="skills">
+    <div class="section-head">
+      <div class="section-kicker">Always learning</div>
+      <h2>Skills I'm developing</h2>
+      <p>Every new project is an opportunity to learn and build experience.</p>
+    </div>
 
-    <p class="subtitle">
-        The future is still being explored
-    </p>
+    <div class="grid">
+      <article class="card glass">
+        <div class="icon-box">🧩</div>
+        <h3>Problem-solving</h3>
+        <p>Breaking questions into smaller steps and exploring possible solutions.</p>
+      </article>
 
-    <div class="card">
+      <article class="card glass">
+        <div class="icon-box">🛠️</div>
+        <h3>Hands-on learning</h3>
+        <p>Learning by exploring, testing ideas, and understanding how things fit together.</p>
+      </article>
 
+      <article class="card glass">
+        <div class="icon-box">🌱</div>
+        <h3>Continuous growth</h3>
+        <p>Building knowledge gradually and staying curious about new technology.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="achievements">
+    <div class="section-head">
+      <div class="section-kicker">My journey</div>
+      <h2>Achievements &amp; projects</h2>
+      <p>This space is ready for future projects, milestones, certificates, and accomplishments.</p>
+    </div>
+
+    <div class="future-card glass">
+      <div class="icon-box">🚀</div>
+      <div>
+        <h3>More coming soon</h3>
         <p>
-            I haven't decided on my exact career ambition yet.
-            For now, I want to keep learning, experimenting,
-            and discovering what I enjoy most.
+          As I complete projects and reach new milestones, I'll update this
+          section with what I've learned and created.
         </p>
+      </div>
+    </div>
+  </section>
 
+  <section id="ambition">
+    <div class="section-head">
+      <div class="section-kicker">Looking ahead</div>
+      <h2>My ambition</h2>
     </div>
 
-</section>
+    <div class="future-card glass">
+      <div class="icon-box">🌌</div>
+      <div>
+        <h3>A future built on learning</h3>
+        <p>
+          I'm exploring my interests and developing the knowledge and skills
+          to make thoughtful choices about my future.
+        </p>
+      </div>
+    </div>
+  </section>
 
+</div>
+</main>
 
-<!-- Footer -->
 <footer>
-
-    © 2026 Abiah Wycliffe • Personal Website
-
+  <div class="wrap footer-inner">
+    <div>© <span id="year"></span> <strong>Abiah Wycliffe</strong>. Made with curiosity.</div>
+    <a href="#home">Back to top ↑</a>
+  </div>
 </footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+  menuToggle.textContent = isOpen ? 'Close ✕' : 'Menu ☰';
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = 'Menu ☰';
+  });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
